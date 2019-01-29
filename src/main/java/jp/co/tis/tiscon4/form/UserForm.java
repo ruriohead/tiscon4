@@ -13,20 +13,35 @@ public class UserForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** 漢字氏名 */
+    /** 漢字氏 */
     @Required
     @Domain("kanjiName")
     private String kanjiName;
 
-    /** カナ氏名 */
+    /** 漢字名 */
+    @Required
+    @Domain("kanjiMei")
+    private String kanjiMei;
+
+    /** カナ氏 */
     @Required
     @Domain("kanaName")
     private String kanaName;
 
-    /** 英字氏名 */
+    /** カナ名 */
+    @Required
+    @Domain("kanaMei")
+    private String kanaMei;
+
+    /** 英字氏 */
     @Required
     @Domain("alphabetName")
     private String alphabetName;
+
+    /** 英字名 */
+    @Required
+    @Domain("alphabetName")
+    private String alphabetMei;
 
     /** 性別 */
     @Required
@@ -99,6 +114,14 @@ public class UserForm implements Serializable {
         this.kanjiName = kanjiName;
     }
 
+    public String getKanjiMei() {
+        return kanjiName;
+    }
+
+    public void setKanjiMei(String kanjiName) {
+        this.kanjiName = kanjiName;
+    }
+
     public String getKanaName() {
         return kanaName;
     }
@@ -107,11 +130,27 @@ public class UserForm implements Serializable {
         this.kanaName = kanaName;
     }
 
+    public String getKanaMei() {
+        return kanjiName;
+    }
+
+    public void setKanaMei(String kanjiName) {
+        this.kanjiName = kanjiName;
+    }
+
     public String getAlphabetName() {
         return alphabetName;
     }
 
     public void setAlphabetName(String alphabetName) {
+        this.alphabetName = alphabetName;
+    }
+
+    public String getAlphabetMei() {
+        return alphabetName;
+    }
+
+    public void setAlphabetMei(String alphabetName) {
         this.alphabetName = alphabetName;
     }
 
