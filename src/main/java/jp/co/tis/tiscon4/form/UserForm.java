@@ -6,88 +6,120 @@ import nablarch.core.util.StringUtil;
 import nablarch.core.validation.ee.Domain;
 import nablarch.core.validation.ee.Required;
 
+
 import javax.validation.constraints.AssertTrue;
 import java.io.Serializable;
 
-public class UserForm implements Serializable {
+public class UserForm<validwhen> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** 漢字氏名 */
+    /**
+     * 漢字氏名
+     */
     @Required
     @Domain("kanjiName")
     private String kanjiName;
 
-    /** カナ氏名 */
+    /**
+     * カナ氏名
+     */
     @Required
     @Domain("kanaName")
     private String kanaName;
 
-    /** 英字氏名 */
+    /**
+     * 英字氏名
+     */
     @Required
     @Domain("alphabetName")
     private String alphabetName;
 
-    /** 性別 */
+    /**
+     * 性別
+     */
     @Required
     @Domain("gender")
     private String gender;
 
-    /** 生年月日 */
+    /**
+     * 生年月日
+     */
     @Required
     @Domain("dateOfBirth")
     private String dateOfBirth;
 
-    /** 郵便番号 */
+    /**
+     * 郵便番号
+     */
     @Required
     @Domain("zipCode")
     private String zipCode;
 
-    /** 住所 */
+    /**
+     * 住所
+     */
     @Required
     @Domain("address")
     private String address;
 
-    /** 自宅電話番号 */
-    @Required
+    /**
+     * 自宅電話番号
+     */
     @Domain("homePhoneNumber")
+
     private String homePhoneNumber;
 
-    /** 携帯電話番号 */
-    @Required
+    /**
+     * 携帯電話番号
+     */
     @Domain("mobilePhoneNumber")
     private String mobilePhoneNumber;
 
-    /** メールアドレス */
+    /**
+     * メールアドレス
+     */
     @Required
     @Domain("emailAddress")
     private String emailAddress;
 
-    /** 配偶者有無 */
+    /**
+     * 配偶者有無
+     */
     @Required
     @Domain("married")
     private String married;
 
-    /** 所得金額 */
+    /**
+     * 所得金額
+     */
     @Required
     @Domain("income")
     private String income;
 
-    /** 職業 */
+    /**
+     * 職業
+     */
     @Required
     @Domain("job")
     private String job;
 
-    /** その他の職業 */
+    /**
+     * その他の職業
+     */
     @Domain("otherJob")
     private String otherJob;
 
-    /** 治療歴有無 */
+    /**
+     * 治療歴有無
+     */
     @Required
     @Domain("treated")
     private String treated;
 
-    /** 既往歴 */
+    /**
+     * 既往歴
+     */
     @Domain("medicalHistory")
     private String medicalHistory;
 
@@ -253,4 +285,14 @@ public class UserForm implements Serializable {
         return true;
     }
 
+    @AssertTrue(message = "{tiscon4.order.inputUser.error.hasValueHomePhoneNumber}")
+    public boolean hasValueHomePhoneNumber() {
+        if (StringUtil.isNullOrEmpty(homePhoneNumber) && StringUtil.isNullOrEmpty(mobilePhoneNumber)) {
+            // 治療有無が未入力の場合は、相関バリデーションは実施しない。(バリデーションOKとする)
+            return true;
+        } else if (TreatedType.TREATED.getCode().equals(treated) && StringUtil.isNullOrEmpty(medicalHistory)) {
+            return false;
+        }
+        return true;
+    }
 }
