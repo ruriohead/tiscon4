@@ -23,14 +23,15 @@
             <h2 class="bland-message">多彩なチカラが、広げる未来。</h2>
 
             <div class="index-block">
-                <div class="index-icon" style="border:solid 3px #4B610B;">
-                    <img src="/img/icon_treat.png">
-                    <p class="index-text" style="top:40px;">★病気、ケガに備える</p>
-                    <a href="/action/order/accept?insuranceType=treat" class="index-button"
-                       style="top:90px; background-color: #4B610B;">
-                        申し込み
-                    </a>
-                </div>
+                <a href="/action/order/accept?insuranceType=treat">
+                    <div class="index-icon" style="border:solid 3px #4B610B;">
+                        <img src="/img/icon_treat.png">
+                        <p class="index-text" style="top:40px;">★病気、ケガに備える</p>
+                        <a href="/action/order/accept?insuranceType=treat" class="index-button" style="top:90px; background-color: #4B610B;">
+                            申し込み
+                        </a>
+                    </div>
+                </a>
 
                 <div class="index-icon" style="border:solid 3px #B40404;">
                     <img src="/img/icon_treatLady.png">
@@ -56,5 +57,15 @@
 
     </div>
 </div>
-</div></body>
+</div>
+<div>
+    <div class ="tabbox">
+        <input type="radio" name="tabset" id="tabcheck1" checked><label for="tabcheck1" class="tab">けが・病気に備える</label>
+        <input type="radio" name="tabset" id="tabcheck2"        ><label for="tabcheck2" class="tab">がんに備える</label>
+        <input type="radio" name="tabset" id="tabcheck3"        ><label for="tabcheck3" class="tab">終身保険</label>
+    </div>
+
+</div>
+
+</body>
 </html>

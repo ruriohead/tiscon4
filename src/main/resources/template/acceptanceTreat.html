@@ -15,15 +15,8 @@
 <div class="full height image">
     <div class="ui main container">
         <div class="ui information container">
-            <div class="acceptance-icon" style="border:solid 3px #4B610B;" th:if="${insOrder.insuranceType.equals('treat')}">
+            <div class="acceptance-icon" style="border:solid 3px #4B610B;" >
                 <img src="/img/icon_treat.png">
-            </div>
-            <div class="acceptance-icon" style="border:solid 3px #B40404;"
-                 th:if="${insOrder.insuranceType.equals('treatLady')}">
-                <img src="/img/icon_treatLady.png">
-            </div>
-            <div class="acceptance-icon" style="border:solid 3px #0174DF;" th:if="${insOrder.insuranceType.equals('future')}">
-                <img src="/img/icon_future.png">
             </div>
             <div class="ui middle center aligned grid">
                 <div class="ui segment metrixir" style="width: 700px;margin: 30px;">
