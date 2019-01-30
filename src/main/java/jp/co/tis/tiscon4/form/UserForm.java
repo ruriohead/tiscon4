@@ -49,9 +49,24 @@ public class UserForm implements Serializable {
     private String gender;
 
     /** 生年月日 */
-    @Required
+    /*@Required
     @Domain("dateOfBirth")
     private String dateOfBirth;
+*/
+    /** 生年月日 */
+    @Required
+    @Domain("year")
+    private String year;
+
+    /** 生年月日 */
+    @Required
+    @Domain("month")
+    private String month;
+
+    /** 生年月日 */
+    @Required
+    @Domain("day")
+    private String day;
 
     /** 郵便番号 */
     @Required
@@ -113,11 +128,11 @@ public class UserForm implements Serializable {
     }
 
     public String getKanjiMei() {
-        return kanjiName;
+        return kanjiMei;
     }
 
-    public void setKanjiMei(String kanjiName) {
-        this.kanjiName = kanjiName;
+    public void setKanjiMei(String kanjiMei) {
+        this.kanjiMei = kanjiMei;
     }
 
     public String getKanaName() {
@@ -128,12 +143,10 @@ public class UserForm implements Serializable {
         this.kanaName = kanaName;
     }
 
-    public String getKanaMei() {
-        return kanjiName;
-    }
+    public String getKanaMei() { return kanaMei; }
 
-    public void setKanaMei(String kanjiName) {
-        this.kanjiName = kanjiName;
+    public void setKanaMei(String kanaMei) {
+        this.kanaMei = kanaMei;
     }
 
     public String getAlphabetName() {
@@ -145,19 +158,43 @@ public class UserForm implements Serializable {
     }
 
     public String getAlphabetMei() {
-        return alphabetName;
+        return alphabetMei;
     }
 
-    public void setAlphabetMei(String alphabetName) {
-        this.alphabetName = alphabetName;
+    public void setAlphabetMei(String alphabetMei) {
+        this.alphabetMei = alphabetMei;
     }
 
-    public String getDateOfBirth() {
+    /*public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }*/
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
     }
 
     public String getGender() {
@@ -289,14 +326,5 @@ public class UserForm implements Serializable {
         }
         return true;
     }
-    @AssertTrue(message = "{tiscon4.order.inputUser.error.hasValueMedicalHistory}")
-    public boolean hasHomePhoneNumber() {
-        if (StringUtil.isNullOrEmpty(homePhoneNumber)) {
 
-            return true;
-        } else if (StringUtil.isNullOrEmpty(mobilePhoneNumber)) {
-            return true;
-        }
-        return false;
-    }
 }
