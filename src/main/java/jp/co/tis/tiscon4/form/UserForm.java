@@ -176,27 +176,27 @@ public class UserForm implements Serializable {
     }
 
     public String getYear() {
-        return dateOfBirth;
+        return year;
     }
 
-    public void setYear(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public String getMonth() {
-        return dateOfBirth;
+        return month;
     }
 
-    public void setMonth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     public String getDay() {
-        return dateOfBirth;
+        return day;
     }
 
-    public void setDay(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDay(String day) {
+        this.day = day;
     }
 
     public String getGender() {
