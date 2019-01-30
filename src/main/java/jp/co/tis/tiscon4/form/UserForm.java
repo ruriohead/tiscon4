@@ -53,6 +53,21 @@ public class UserForm implements Serializable {
     @Domain("dateOfBirth")
     private String dateOfBirth;
 
+    /** 生年月日 */
+    @Required
+    @Domain("year")
+    private String year;
+
+    /** 生年月日 */
+    @Required
+    @Domain("month")
+    private String month;
+
+    /** 生年月日 */
+    @Required
+    @Domain("day")
+    private String day;
+
     /** 郵便番号 */
     @Required
     @Domain("zipCode")
@@ -115,11 +130,11 @@ public class UserForm implements Serializable {
     }
 
     public String getKanjiMei() {
-        return kanjiName;
+        return kanjiMei;
     }
 
-    public void setKanjiMei(String kanjiName) {
-        this.kanjiName = kanjiName;
+    public void setKanjiMei(String kanjiMei) {
+        this.kanjiMei = kanjiMei;
     }
 
     public String getKanaName() {
@@ -130,12 +145,10 @@ public class UserForm implements Serializable {
         this.kanaName = kanaName;
     }
 
-    public String getKanaMei() {
-        return kanjiName;
-    }
+    public String getKanaMei() { return kanaMei; }
 
-    public void setKanaMei(String kanjiName) {
-        this.kanjiName = kanjiName;
+    public void setKanaMei(String kanaMei) {
+        this.kanaMei = kanaMei;
     }
 
     public String getAlphabetName() {
@@ -147,11 +160,11 @@ public class UserForm implements Serializable {
     }
 
     public String getAlphabetMei() {
-        return alphabetName;
+        return alphabetMei;
     }
 
-    public void setAlphabetMei(String alphabetName) {
-        this.alphabetName = alphabetName;
+    public void setAlphabetMei(String alphabetMei) {
+        this.alphabetMei = alphabetMei;
     }
 
     public String getDateOfBirth() {
@@ -159,6 +172,30 @@ public class UserForm implements Serializable {
     }
 
     public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getYear() {
+        return dateOfBirth;
+    }
+
+    public void setYear(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getMonth() {
+        return dateOfBirth;
+    }
+
+    public void setMonth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getDay() {
+        return dateOfBirth;
+    }
+
+    public void setDay(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
