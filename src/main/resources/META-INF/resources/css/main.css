@@ -134,8 +134,8 @@ ul.label {
     font-weight:bold;
     background:#FFF;
     border-radius:10px;
-    width: 250px;
-    height: 300px;
+    /*width: 250px;*/
+    height: 500px;
 }
 
 .index-text{
@@ -178,3 +178,53 @@ td {
     width: 400px;
 }
 
+/* ▼タブ(共通装飾＋非選択状態の装飾) */
+.tab {
+   display: inline-block;          /* インラインブロック化 */
+   border-width: 1px 1px 0px 1px;  /* 上側と左右に枠線を引く */
+   border-style: solid;            /* 枠線の種類は「実線」 */
+   border-color: black;            /* 枠線の色は「黒」 */
+   border-radius: 0.75em 0.75em 0px 0px;  /* 左上と右上の角だけを丸くする */
+   padding: 0.75em 1em;            /* 内側の余白量 */
+   font-weight: bold;              /* タブの文字を太字にする */
+   color: black;                   /* タブの文字色：黒色 */
+   background-color: #e0e0e0;      /* タブの(非選択状態の)背景色：灰色 */
+   }
+
+/* ▼タブにマウスポインタが載った際の装飾 */
+.tab:hover {
+   color: green;                /* タブの文字色：緑色 */
+   background-color: #ccffcc;   /* タブの背景色：淡い緑色 */
+   cursor: pointer;             /* マウスポインタの形状を「指(指し示す形)」にする */
+}
+
+/* ▼選択状態のタブ(＝チェックが入っているラジオボタンの隣にあるタブの装飾) */
+input:checked + .tab {
+   color: red;                  /* タブの文字色：赤色 */
+   background-color: #ffffcc;   /* タブの背景色：淡い黄色 */
+}
+
+/* ▼タブ機能を制御するラジオボタン(非表示にする) */
+.tabbox input { display: none; }
+
+.tabcontent {
+    display:none;
+    border: 1px solid black;
+    padding:1em;
+    background-color: #ffffcc;
+}
+
+#tabcheck1:checked ~ #tabcontent1{display:block;}
+#tabcheck2:checked ~ #tabcontent2{display:block;}
+#tabcheck3:checked ~ #tabcontent3{display:block;}
+
+input:checked +.tab{
+    z-index :10;
+    position:relative;
+}
+
+.tabcontent{
+    margin-top:-1px;
+    z-index:0;
+    position:relative;
+}

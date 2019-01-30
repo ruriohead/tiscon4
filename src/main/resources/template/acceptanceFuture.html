@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ご加入条件確認</title>
+
+    <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Exo:900}"/>
+    <link rel="stylesheet"
+          th:href="@{https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<nav th:insert="header.html :: header"></nav>
+
+<div class="full height image">
+    <div class="ui main container">
+        <div class="ui information container">
+            <div class="acceptance-icon" style="border:solid 3px #0174DF;" th:if="${insOrder.insuranceType.equals('future')}">
+                <img src="/img/icon_future.png">
+            </div>
+            <div class="ui middle center aligned grid">
+                <div class="ui segment metrixir" style="width: 700px;margin: 30px;">
+                    <h1 class="ui aligned header teal center">ご加入条件確認</h1>
+
+                    <form class="ui form" method="post" action="/action/order/inputUser">
+
+                        <div class="ui statement">
+                            以下の事項は保険の引受判断のための重要事項であり、被保険者様は必ず事実を告知する必要があります。
+                            事実と異なることを告知された場合には、ご契約を無効とさせて頂く場合があります。
+                        </div>
+
+                        <div class="ui info message">
+                            <div class="header">本保険は、以下の条件を満たす場合のみご加入頂くことができます。</div>
+                            <ol class="ui list">
+                                <li value="●">過去5年以内に、以下の病気で7日間以上にわたる医師の診察・検査・治療・投薬をうけていないこと。</li>
+                                <ol>
+                                    <li value="－">がん</li>
+                                    <li value="－">急性心筋梗塞</li>
+                                    <li value="－">脳卒中</li>
+                                    <li value="－">糖尿病</li>
+                                    <li value="－" th:if="${insOrder.insuranceType.equals('treatLady')}">子宮外妊娠</li>
+                                    <li value="－" th:if="${insOrder.insuranceType.equals('treatLady')}">子宮筋腫</li>
+                                </ol>
+                                <li value="●" th:if="${insOrder.insuranceType.equals('treatLady')}">現在妊娠していないこと。</li>
+                                <li value="●">過去2年以内に、健康診断・人間ドックで異常（要再検査・要精密検査・要治療）を指摘されていないこと。</li>
+                                <li value="●">障害者手帳を持っていないこと。</li>
+
+                            </ol>
+                        </div>
+
+                        <div class="ui checkbox" style="margin: 10px;">
+                            <input type="checkbox" name="acceptance" th:value="1"/>
+                            <label>全ての加入条件を満たしていることを確認しました。</label>
+                        </div>
+
+                        <button class="ui fluid teal button">次へ（個人情報の入力）</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
