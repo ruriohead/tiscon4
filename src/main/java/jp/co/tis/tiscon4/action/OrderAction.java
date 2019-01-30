@@ -157,6 +157,7 @@ public class OrderAction {
         ctx.setRequestScopedVar("yearlist", yearlist);
         ctx.setRequestScopedVar("monthlist", monthlist);
         ctx.setRequestScopedVar("daylist", daylist);
+
         ctx.setRequestScopedVar("genderTypes", GenderType.values());
         ctx.setRequestScopedVar("marriedTypes", MarriedType.values());
         ctx.setRequestScopedVar("jobTypes", JobType.values());
