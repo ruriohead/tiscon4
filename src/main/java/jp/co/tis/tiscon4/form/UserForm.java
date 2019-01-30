@@ -326,5 +326,22 @@ public class UserForm implements Serializable {
         }
         return true;
     }
-
+    @AssertTrue(message = "{tiscon4.order.inputUser.error.hasHomePhoneNumber}")
+    public boolean hasHomePhoneNumber() {
+        if (!StringUtil.isNullOrEmpty(homePhoneNumber)) {
+            return true;
+        } else if (!StringUtil.isNullOrEmpty(mobilePhoneNumber)) {
+            return true;
+        }
+        return false;
+    }
+    @AssertTrue(message = "{tiscon4.order.inputUser.error.hasMobilePhoneNumber}")
+    public boolean hasMobilePhoneNumber() {
+        if (!StringUtil.isNullOrEmpty(mobilePhoneNumber)) {
+            return true;
+        } else if (!StringUtil.isNullOrEmpty(homePhoneNumber)) {
+            return true;
+        }
+        return false;
+    }
 }
