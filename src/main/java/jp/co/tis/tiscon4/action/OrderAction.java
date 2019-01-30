@@ -50,7 +50,15 @@ public class OrderAction {
 
         ctx.setRequestScopedVar("form", new AcceptForm());
 
-        return new HttpResponse("acceptance.html");
+        if(insOrder.getInsuranceType().equals("treat")){
+            return new HttpResponse("acceptanceTreat.html");
+        } else if(insOrder.getInsuranceType().equals("treatLady")) {
+            return new HttpResponse("acceptanceTreatLady.html");
+        } else if (insOrder.getInsuranceType().equals("future")) {
+            return new HttpResponse("acceptanceFuture.html");
+        } else{
+            return null;
+        }
     }
 
     /**
@@ -61,7 +69,7 @@ public class OrderAction {
      * @return HTTPレスポンス
      */
     @InjectForm(form = AcceptForm.class)
-    @OnError(type = ApplicationException.class, path = "acceptance.html")
+    @OnError(type = ApplicationException.class, path = "acceptanceTreat.html")
     public HttpResponse inputUser(HttpRequest req, ExecutionContext ctx) {
         ctx.setRequestScopedVar("form", new UserForm());
         ctx.setRequestScopedVar("genderTypes", GenderType.values());
@@ -181,7 +189,7 @@ public class OrderAction {
 
         ctx.setRequestScopedVar("form", new AcceptForm());
 
-        return new HttpResponse("acceptance.html");
+        return new HttpResponse("acceptanceTreat.html");
     }
 
     /**
