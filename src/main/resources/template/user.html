@@ -129,7 +129,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：ＴＩＳ　太郎</p>
+
                                     <div class="field" th:classappend="${errors.hasError('kanjiName')} ? 'error'">
                                         <input type="text" name="kanjiName" value="" placeholder="TIS" style="float:left; width:50%;" th:value="${form.kanjiName}"/>
                                         <input type="text" name="kanjiMei" value="" placeholder="太郎"  style="width:50%;" th:value="${form.kanjiMei}">
@@ -148,7 +148,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：ティーアイエス　タロウ</p>
+
                                     <div class="field" th:classappend="${errors.hasError('kanaName')} ? 'error'">
                                         <input type="text" name="kanaName" value="" placeholder="ティーアイエス" id="kanaName" style="float:left; width:50%;" th:value="${form.kanaName}"onChange="cname_string()"/>
                                         <input type="text" name="kanaMei" value="" placeholder="タロウ" id="kanaMei" style="width:50%;" th:value="${form.kanaMei}" onChange="cmei_string()">
@@ -167,7 +167,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：TIS TAROU</p>
+
                                     <div class="field" th:classappend="${errors.hasError('alphabetName')} ? 'error'">
                                         <input type="text" name="alphabetName" value="" placeholder="TIS" id="alphabetName" style="float:left; width:50%;" th:value="${form.alphabetName}"/>
                                         <input type="text" name="alphabetMei" value="" placeholder="TAROU" id="alphabetMei" style="width:50%;" th:value="${form.alphabetMei}">
@@ -207,7 +207,7 @@
                                 <td>
 
 
-                                    <p>例：1990/01/01</p>
+
                                        <select name="year" style="width:25%; display:inline;"  th:value="${form.year}">
                                        <option th:each="year: ${yearlist}" th:value="${year}" th:selected="${form.year== year}" th:inline="text">[[${year}]]</option>
                                        </select>　年
