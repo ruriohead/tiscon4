@@ -21,36 +21,73 @@
 	    });
 	    });
     </script>
-    //カタカナからローマ字（やりかけ）
     <script type="text/javascript">
-        function cman_string(){
-        var aftkana = new Array("ア","イ","ウ","エ","オ","カ","キ","ク","ケ","コ",
+        $( document ).ready( function(){
+	    // 姓名 (カタカナ)
+	    $.fn.autoKana( "input[name='kanjiMei']", "input[name='kanaMei']", {
+	    katakana : true
+	    });
+	    });
+    </script>
+    //カタカナからローマ字
+    <script type="text/javascript">
+        function cname_string(){
+        var befkana = new Array("ア","イ","ウ","エ","オ","カ","キ","ク","ケ","コ",
         "サ","シ","ス","セ","ソ","タ","チ","ツ","テ","ト",
         "ナ","ニ","ヌ","ネ","ノ","ハ","ヒ","フ","ヘ","ホ",
         "マ","ミ","ム","メ","モ","ヤ","ユ","ヨ",
         "ラ","リ","ル","レ","ロ","ワ","ヲ","ン",
-        "―","ー","－","‐");
-        var aftdaku = new Array("ヴ","ガ","ギ","グ","ゲ","ゴ","ザ","ジ","ズ","ゼ","ゾ",
-        "ダ","ヂ","ヅ","デ","ド",
-        "バ","ビ","ブ","ベ","ボ","パ","ピ","プ","ペ","ポ");
-        var befkana = new Array("A","I","U","E","O","KA","KI","KU","KE","KO",
-        "SA","SHI","SU","SE","SO","TA","TI","TU","TE","TO",
+        "―","ー","－","‐","ヴ",
+        "ガ","ギ","グ","ゲ","ゴ","ザ","ジ","ズ","ゼ","ゾ",
+        "ダ","ヂ","ヅ","デ","ド","バ","ビ","ブ","ベ","ボ",
+        "パ","ピ","プ","ペ","ポ");
+        var aftroma = new Array(
+        "A","I","U","E","O","KA","KI","KU","KE","KO",
+        "SA","SHI","SU","SE","SO","TA","CHI","TU","TE","TO",
         "NA","NI","NU","NE","NO","HA","HI","HU","HE","HO",
         "MA","MI","MU","ME","MO","YA","YU","YO",
         "RA","RI","RU","RE","RO","WA","WO","N",
-        "―","―","―","―");
-        var befdaku = new Array("ｳﾞ","GA","GI","GU","GE","GO","ZA","ZI","ZU","ZE","ZO",
-        "DA","DI","DU","DE","DO",
-        "BA","BI","BU","BE","BO","PA","PI","PU","PE","PO");
+        "―","―","―","―","ｳﾞ",
+        "GA","GI","GU","GE","GO","ZA","ZI","ZU","ZE","ZO",
+        "DA","DI","DU","DE","DO","BA","BI","BU","BE","BO",
+        "PA","PI","PU","PE","PO");
          var bef = befkana;
-         var aft = aftkana;
-         textIn = document.getElementById($("#kanaName")).value;
-         for(i=0; i<aftdaku.length; i++){
-         reg = new RegExp(befdaku[i],"g");
-         textIn = textIn.replace(reg, aftdaku[i]);}
+         var aft = aftroma;
+         textIn = document.getElementById("kanaName").value;
          for(i=0; i<aft.length; i++){
          reg = new RegExp(bef[i],"g");
-         $("#alphabetName") = textIn.replace(reg, aft[i]);}
+         textIn = textIn.replace(reg, aft[i]);}
+         document.getElementById("alphabetName").value = textIn;
+         }
+    </script>
+    <script type="text/javascript">
+        function cmei_string(){
+        var befkana = new Array("ア","イ","ウ","エ","オ","カ","キ","ク","ケ","コ",
+        "サ","シ","ス","セ","ソ","タ","チ","ツ","テ","ト",
+        "ナ","ニ","ヌ","ネ","ノ","ハ","ヒ","フ","ヘ","ホ",
+        "マ","ミ","ム","メ","モ","ヤ","ユ","ヨ",
+        "ラ","リ","ル","レ","ロ","ワ","ヲ","ン",
+        "―","ー","－","‐","ヴ",
+        "ガ","ギ","グ","ゲ","ゴ","ザ","ジ","ズ","ゼ","ゾ",
+        "ダ","ヂ","ヅ","デ","ド","バ","ビ","ブ","ベ","ボ",
+        "パ","ピ","プ","ペ","ポ");
+        var aftroma = new Array(
+        "A","I","U","E","O","KA","KI","KU","KE","KO",
+        "SA","SHI","SU","SE","SO","TA","CHI","TU","TE","TO",
+        "NA","NI","NU","NE","NO","HA","HI","HU","HE","HO",
+        "MA","MI","MU","ME","MO","YA","YU","YO",
+        "RA","RI","RU","RE","RO","WA","WO","N",
+        "―","―","―","―","ｳﾞ",
+        "GA","GI","GU","GE","GO","ZA","ZI","ZU","ZE","ZO",
+        "DA","DI","DU","DE","DO","BA","BI","BU","BE","BO",
+        "PA","PI","PU","PE","PO");
+         var bef = befkana;
+         var aft = aftroma;
+         textIn = document.getElementById("kanaMei").value;
+         for(i=0; i<aft.length; i++){
+         reg = new RegExp(bef[i],"g");
+         textIn = textIn.replace(reg, aft[i]);}
+         document.getElementById("alphabetMei").value = textIn;
          }
     </script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8">
@@ -92,7 +129,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：ＴＩＳ　太郎</p>
+
                                     <div class="field" th:classappend="${errors.hasError('kanjiName')} ? 'error'">
                                         <input type="text" name="kanjiName" value="" placeholder="TIS" style="float:left; width:50%;" th:value="${form.kanjiName}"/>
                                         <input type="text" name="kanjiMei" value="" placeholder="太郎"  style="width:50%;" th:value="${form.kanjiMei}">
@@ -111,10 +148,10 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：ティーアイエス　タロウ</p>
+
                                     <div class="field" th:classappend="${errors.hasError('kanaName')} ? 'error'">
-                                        <input type="text" name="kanaName" value="" placeholder="ティーアイエス" style="float:left; width:50%;" th:value="${form.kanaName}"/>
-                                        <input type="text" name="kanaMei" value="" placeholder="タロウ"  style="width:50%;" th:value="${form.kanaMei}">
+                                        <input type="text" name="kanaName" value="" placeholder="ティーアイエス" id="kanaName" style="float:left; width:50%;" th:value="${form.kanaName}"onChange="cname_string()"/>
+                                        <input type="text" name="kanaMei" value="" placeholder="タロウ" id="kanaMei" style="width:50%;" th:value="${form.kanaMei}" onChange="cmei_string()">
                                         <p th:if="${errors.hasError('kanaName')}"
                                            th:text="${errors.getMessage('kanaName')}" class="error-message">
                                         </p>
@@ -130,10 +167,10 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：TIS TAROU</p>
+
                                     <div class="field" th:classappend="${errors.hasError('alphabetName')} ? 'error'">
-                                        <input type="text" name="alphabetName" value="" placeholder="TIS" style="float:left; width:50%;" th:value="${form.alphabetName}"/>
-                                        <input type="text" name="alphabetMei" value="" placeholder="TAROU"  style="width:50%;" th:value="${form.alphabetMei}">
+                                        <input type="text" name="alphabetName" value="" placeholder="TIS" id="alphabetName" style="float:left; width:50%;" th:value="${form.alphabetName}"/>
+                                        <input type="text" name="alphabetMei" value="" placeholder="TAROU" id="alphabetMei" style="width:50%;" th:value="${form.alphabetMei}">
                                         <p th:if="${errors.hasError('alphabetName')}"
                                            th:text="${errors.getMessage('alphabetName')}" class="error-message">
                                         </p>
@@ -170,23 +207,23 @@
                                 <td>
 
 
-                                    <p>例：1990/01/01</p>
+
                                        <select name="year" style="width:25%; display:inline;"  th:value="${form.year}">
-                                       <option th:each="year: ${yearlist}" th:value="${year}" th:selected="${year== year}" th:inline="text">[[${year}]]</option>
+                                       <option th:each="year: ${yearlist}" th:value="${year}" th:selected="${form.year== year}" th:inline="text">[[${year}]]</option>
                                        </select>　年
                                     <p th:if="${errors.hasError('year')}" th:text="${errors.getMessage('year')}"
                                        class="error-message">
                                     </p>
 
                                     <select name="month" style="width:25%; display:inline;" th:value="${form.month}">
-                                        <option th:each="month: ${monthlist}" th:value="${month}" th:selected="${month== month}" th:inline="text">[[${month}]]</option>
+                                        <option th:each="month: ${monthlist}" th:value="${month}" th:selected="${form.month== month}" th:inline="text">[[${month}]]</option>
                                     </select>　月
                                     <p th:if="${errors.hasError('month')}" th:text="${errors.getMessage('month')}"
                                        class="error-message">
                                     </p>
 
                                     <select name="day" style="width:25%; display:inline;" th:value="${form.day}">
-                                        <option th:each="day: ${daylist}" th:value="${day}" th:selected="${day == day}" th:inline="text">[[${day}]]</option>
+                                        <option th:each="day: ${daylist}" th:value="${day}" th:selected="${form.day == day}" th:inline="text">[[${day}]]</option>
                                     </select>　日
                                     <p th:if="${errors.hasError('day')}" th:text="${errors.getMessage('day')}"
                                        class="error-message">
