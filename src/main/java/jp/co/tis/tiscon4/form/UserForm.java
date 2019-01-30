@@ -49,10 +49,10 @@ public class UserForm implements Serializable {
     private String gender;
 
     /** 生年月日 */
-    @Required
+    /*@Required
     @Domain("dateOfBirth")
     private String dateOfBirth;
-
+*/
     /** 生年月日 */
     @Required
     @Domain("year")
@@ -79,12 +79,10 @@ public class UserForm implements Serializable {
     private String address;
 
     /** 自宅電話番号 */
-    @Required
     @Domain("homePhoneNumber")
     private String homePhoneNumber;
 
     /** 携帯電話番号 */
-    @Required
     @Domain("mobilePhoneNumber")
     private String mobilePhoneNumber;
 
@@ -167,13 +165,13 @@ public class UserForm implements Serializable {
         this.alphabetMei = alphabetMei;
     }
 
-    public String getDateOfBirth() {
+    /*public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
+    }*/
 
     public String getYear() {
         return year;
