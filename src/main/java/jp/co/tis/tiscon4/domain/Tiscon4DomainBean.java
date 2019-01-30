@@ -14,6 +14,7 @@ import jp.co.tis.tiscon4.core.validation.validator.ZipNumber;
 import nablarch.core.validation.ee.Digits;
 import nablarch.core.validation.ee.Length;
 import nablarch.core.validation.ee.SystemChar;
+import nablarch.core.validation.validator.NumberRange;
 
 /**
  * ドメイン定義。
@@ -61,6 +62,16 @@ public class Tiscon4DomainBean {
     /** 生年月日 */
     @YYYYMMDD()
     private String dateOfBirth;
+
+    /** 生年月日 */
+    @NumberRange(min = 1900, max=2999)
+    private String year;
+    /** 生年月日 */
+    @NumberRange(min = 1, max=12)
+    private String month;
+    /** 生年月日 */
+    @NumberRange(min = 1, max=31)
+    private String day;
 
     /** 郵便番号 */
     @ZipNumber
