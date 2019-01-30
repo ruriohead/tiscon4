@@ -13,6 +13,7 @@
             crossorigin="anonymous"></script>
     <script src="/js/jquery.autoKana.js" language="javascript" type="text/javascript"></script>
 
+    //動かすのにjquery.autoKana.jsが必要になるかも
     <script type="text/javascript">
         $( document ).ready( function(){
 	    // 姓名 (カタカナ)
@@ -21,36 +22,37 @@
 	    });
 	    });
     </script>
-    //カタカナからローマ字（やりかけ）
+    //カタカナからローマ字
     <script type="text/javascript">
         function cman_string(){
-        var aftkana = new Array("ア","イ","ウ","エ","オ","カ","キ","ク","ケ","コ",
+         var befkana = new Array(
+        "ア","イ","ウ","エ","オ","カ","キ","ク","ケ","コ",
         "サ","シ","ス","セ","ソ","タ","チ","ツ","テ","ト",
         "ナ","ニ","ヌ","ネ","ノ","ハ","ヒ","フ","ヘ","ホ",
         "マ","ミ","ム","メ","モ","ヤ","ユ","ヨ",
         "ラ","リ","ル","レ","ロ","ワ","ヲ","ン",
-        "―","ー","－","‐");
-        var aftdaku = new Array("ヴ","ガ","ギ","グ","ゲ","ゴ","ザ","ジ","ズ","ゼ","ゾ",
-        "ダ","ヂ","ヅ","デ","ド",
-        "バ","ビ","ブ","ベ","ボ","パ","ピ","プ","ペ","ポ");
-        var befkana = new Array("A","I","U","E","O","KA","KI","KU","KE","KO",
+        "―","ー","－","‐","ヴ",
+        "ガ","ギ","グ","ゲ","ゴ","ザ","ジ","ズ","ゼ","ゾ",
+        "ダ","ヂ","ヅ","デ","ド","バ","ビ","ブ","ベ","ボ",
+        "パ","ピ","プ","ペ","ポ");
+        var aftroma = new Array(
+        "A","I","U","E","O","KA","KI","KU","KE","KO",
         "SA","SHI","SU","SE","SO","TA","TI","TU","TE","TO",
         "NA","NI","NU","NE","NO","HA","HI","HU","HE","HO",
         "MA","MI","MU","ME","MO","YA","YU","YO",
         "RA","RI","RU","RE","RO","WA","WO","N",
-        "―","―","―","―");
-        var befdaku = new Array("ｳﾞ","GA","GI","GU","GE","GO","ZA","ZI","ZU","ZE","ZO",
-        "DA","DI","DU","DE","DO",
-        "BA","BI","BU","BE","BO","PA","PI","PU","PE","PO");
+        "―","―","―","―","ｳﾞ",
+        "GA","GI","GU","GE","GO","ZA","ZI","ZU","ZE","ZO",
+        "DA","DI","DU","DE","DO","BA","BI","BU","BE","BO",
+        "PA","PI","PU","PE","PO");
          var bef = befkana;
-         var aft = aftkana;
-         textIn = document.getElementById($("#kanaName")).value;
-         for(i=0; i<aftdaku.length; i++){
-         reg = new RegExp(befdaku[i],"g");
-         textIn = textIn.replace(reg, aftdaku[i]);}
+         var aft = aftroma;
+         textIn = document.getElementById("kanaName").value;
          for(i=0; i<aft.length; i++){
          reg = new RegExp(bef[i],"g");
-         $("#alphabetName") = textIn.replace(reg, aft[i]);}
+         textIn = textIn.replace(reg, aft[i]);
+         }
+         document.getElementById("alphabetName").value=textIn.toUpperCase();
          }
     </script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8">
@@ -109,7 +111,7 @@
                                 <td>
                                     <p>例：ティーアイエス　タロウ</p>
                                     <div class="field" th:classappend="${errors.hasError('kanaName')} ? 'error'">
-                                        <input type="text" name="kanaName" th:value="${form.kanaName}"/>
+                                        <input type="text" name="kanaName" id="kanaName" th:value="${form.kanaName}" onChange="cman_string()"/>
                                         <p th:if="${errors.hasError('kanaName')}"
                                            th:text="${errors.getMessage('kanaName')}" class="error-message">
                                         </p>
@@ -124,7 +126,7 @@
                                 <td>
                                     <p>例：TIS TAROU</p>
                                     <div class="field" th:classappend="${errors.hasError('alphabetName')} ? 'error'">
-                                        <input type="text" name="alphabetName" th:value="${form.alphabetName}"/>
+                                        <input type="text" name="alphabetName" id="alphabetName"th:value="${form.alphabetName}"/>
                                         <p th:if="${errors.hasError('alphabetName')}"
                                            th:text="${errors.getMessage('alphabetName')}" class="error-message">
                                         </p>
