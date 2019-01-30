@@ -206,6 +206,7 @@
                                 </td>
                                 <td>
                                     <select name="year" style="width:25%; display:inline;"  th:value="${form.year}">
+
                                        <option th:each="year: ${yearlist}" th:value="${year}" th:selected="${form.year== year}" th:inline="text">[[${year}]]</option>
                                        </select>　年
                                     <p th:if="${errors.hasError('year')}" th:text="${errors.getMessage('year')}"
