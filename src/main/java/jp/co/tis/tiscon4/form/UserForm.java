@@ -48,6 +48,10 @@ public class UserForm implements Serializable {
     @Domain("gender")
     private String gender;
 
+    /** 生年月日 */
+    @Required
+    @Domain("dateOfBirth")
+    private String dateOfBirth;
 
     /** 生年月日 */
     @Required
@@ -161,6 +165,14 @@ public class UserForm implements Serializable {
 
     public void setAlphabetMei(String alphabetMei) {
         this.alphabetMei = alphabetMei;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getYear() {
