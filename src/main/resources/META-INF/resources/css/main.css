@@ -134,24 +134,28 @@ ul.label {
     font-weight:bold;
     background:#FFF;
     border-radius:10px;
-    /*width: 250px;*/
-    height: 500px;
+    width: 600px;
+    height: 125px;
 }
 
 .index-text{
-    position:relative;
+    float:left;
+    /*position:relative;*/
     text-align:left;
     margin:0;
     padding:0;
+    width: 300px;
+    height:auto;
 }
 
 .index-button {
+    float:left;
     display: inline-block;
     margin: 0 .25em 0 0;
     padding: .78571429em 1.5em;
     line-height: 1em;
     border-radius: .28571429rem;
-    position:relative;
+    /*position:relative;*/
     color: #FFF;
 }
 
@@ -204,6 +208,11 @@ input:checked + .tab {
    background-color: #ffffcc;   /* タブの背景色：淡い黄色 */
 }
 
+.tabbox{
+    display: inline-block;
+    vertical-align:middle;
+    width: 800px;
+}
 /* ▼タブ機能を制御するラジオボタン(非表示にする) */
 .tabbox input { display: none; }
 
@@ -214,9 +223,12 @@ input:checked + .tab {
     background-color: #ffffcc;
 }
 
+/*checkされたところだけ表示する*/
 #tabcheck1:checked ~ #tabcontent1{display:block;}
 #tabcheck2:checked ~ #tabcontent2{display:block;}
 #tabcheck3:checked ~ #tabcontent3{display:block;}
+#tabcheck4:checked ~ #tabcontent4{display:block;}
+#tabcheck5:checked ~ #tabcontent5{display:block;}
 
 input:checked +.tab{
     z-index :10;
@@ -227,4 +239,38 @@ input:checked +.tab{
     margin-top:-1px;
     z-index:0;
     position:relative;
+}
+
+.top_image{
+    float:left;
+    width:150px;
+    height:auto;
+}
+
+.denwa{
+    display:inline-block;
+    vertical-align:middle;
+    width:210px;
+    border: 1px solid black;
+    padding:1em;
+    background-color: #ffff11;
+}
+
+.denwa_text{
+    text-align:middle;
+    padding:0;
+    height:auto;
+    font-weight:bold;
+}
+
+.denwa_bangou{
+    text-align:middle;
+    padding:0;
+    height:auto;
+    font-weight:bold;
+    font-size : 20px;
+}
+
+.middle_section{
+    text-align: center;
 }
