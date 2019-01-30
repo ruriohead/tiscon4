@@ -71,21 +71,21 @@ public class OrderAction {
      * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
      * @return HTTPレスポンス
      */
+
+
     List<Integer> daylist=new ArrayList<>();
-    List<Integer> yearlist=new ArrayList<>();
-    List<Integer> monthlist=new ArrayList<>();
     @InjectForm(form = AcceptForm.class)
     @OnError(type = ApplicationException.class, path = "acceptanceTreat.html")
     public HttpResponse inputUser(HttpRequest req, ExecutionContext ctx) {
-
+        List<Integer> yearlist=new ArrayList<>();
         for(int i=1900; i<=2020; i++) {
             yearlist.add(i);
         }
-
+        List<Integer> monthlist=new ArrayList<>();
         for(int j=1; j<=12; j++) {
             monthlist.add(j);
         }
-
+        List<Integer> daylist=new ArrayList<>();
         for(int k=1; k<=31; k++) {
             daylist.add(k);
         }
@@ -141,6 +141,19 @@ public class OrderAction {
      * @return HTTPレスポンス
      */
     public HttpResponse inputUserForError(HttpRequest req, ExecutionContext ctx) {
+        List<Integer> yearlist=new ArrayList<>();
+        for(int i=1900; i<=2020; i++) {
+            yearlist.add(i);
+        }
+        List<Integer> monthlist=new ArrayList<>();
+        for(int j=1; j<=12; j++) {
+            monthlist.add(j);
+        }
+        List<Integer> daylist=new ArrayList<>();
+        for(int k=1; k<=31; k++) {
+            daylist.add(k);
+        }
+
         ctx.setRequestScopedVar("yearlist", yearlist);
         ctx.setRequestScopedVar("monthlist", monthlist);
         ctx.setRequestScopedVar("daylist", daylist);
