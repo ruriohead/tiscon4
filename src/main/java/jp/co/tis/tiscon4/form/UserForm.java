@@ -64,12 +64,10 @@ public class UserForm implements Serializable {
     private String address;
 
     /** 自宅電話番号 */
-    @Required
     @Domain("homePhoneNumber")
     private String homePhoneNumber;
 
     /** 携帯電話番号 */
-    @Required
     @Domain("mobilePhoneNumber")
     private String mobilePhoneNumber;
 
