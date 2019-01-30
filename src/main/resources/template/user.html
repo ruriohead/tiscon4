@@ -172,21 +172,21 @@
 
                                     <p>例：1990/01/01</p>
                                        <select name="year" style="width:25%; display:inline;"  th:value="${form.year}">
-                                       <option th:each="year: ${yearlist}" th:value="${year}" th:selected="${year== year}" th:inline="text">[[${year}]]</option>
+                                       <option th:each="year: ${yearlist}" th:value="${year}" th:selected="${form.year== year}" th:inline="text">[[${year}]]</option>
                                        </select>　年
                                     <p th:if="${errors.hasError('year')}" th:text="${errors.getMessage('year')}"
                                        class="error-message">
                                     </p>
 
                                     <select name="month" style="width:25%; display:inline;" th:value="${form.month}">
-                                        <option th:each="month: ${monthlist}" th:value="${month}" th:selected="${month== month}" th:inline="text">[[${month}]]</option>
+                                        <option th:each="month: ${monthlist}" th:value="${month}" th:selected="${form.month== month}" th:inline="text">[[${month}]]</option>
                                     </select>　月
                                     <p th:if="${errors.hasError('month')}" th:text="${errors.getMessage('month')}"
                                        class="error-message">
                                     </p>
 
                                     <select name="day" style="width:25%; display:inline;" th:value="${form.day}">
-                                        <option th:each="day: ${daylist}" th:value="${day}" th:selected="${day == day}" th:inline="text">[[${day}]]</option>
+                                        <option th:each="day: ${daylist}" th:value="${day}" th:selected="${form.day == day}" th:inline="text">[[${day}]]</option>
                                     </select>　日
                                     <p th:if="${errors.hasError('day')}" th:text="${errors.getMessage('day')}"
                                        class="error-message">
