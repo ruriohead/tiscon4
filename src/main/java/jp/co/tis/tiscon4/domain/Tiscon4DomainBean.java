@@ -24,20 +24,35 @@ public class Tiscon4DomainBean {
     @CodeValue(enumClass = InsuranceType.class)
     private String insuranceType;
 
-    /** 漢字氏名 */
+    /** 漢字氏 */
     @SystemChar(charsetDef = "全角文字", message = "{domain.illegalCharacter}")
-    @Length(max = 60)
+    @Length(max = 30)
     private String kanjiName;
 
-    /** カナ氏名 */
+    /** 漢字名 */
+    @SystemChar(charsetDef = "全角文字", message = "{domain.illegalCharacter}")
+    @Length(max = 30)
+    private String kanjiMei;
+
+    /** カナ氏 */
     @SystemChar(charsetDef = "全角カタカナスペース", message = "{domain.illegalCharacter}")
-    @Length(max = 90)
+    @Length(max = 45)
     private String kanaName;
 
-    /** 英字氏名 */
+    /** カナ名 */
+    @SystemChar(charsetDef = "全角カタカナスペース", message = "{domain.illegalCharacter}")
+    @Length(max = 45)
+    private String kanaMei;
+
+    /** 英字氏 */
     @SystemChar(charsetDef = "半角英字スペース", message = "{domain.illegalCharacter}")
-    @Length(max = 120)
+    @Length(max = 60)
     private String alphabetName;
+
+    /** 英字名 */
+    @SystemChar(charsetDef = "半角英字スペース", message = "{domain.illegalCharacter}")
+    @Length(max = 60)
+    private String alphabetMei;
 
     /** 性別 */
     @CodeValue(enumClass = GenderType.class)
